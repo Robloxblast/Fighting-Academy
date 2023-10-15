@@ -1,0 +1,141 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Blast Hub [Fighting Academy]", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+
+--[[
+Name = <string> - The name of the UI.
+HidePremium = <bool> - Whether or not the user details shows Premium status or not.
+SaveConfig = <bool> - Toggles the config saving in the UI.
+ConfigFolder = <string> - The name of the folder where the configs are saved.
+IntroEnabled = <bool> - Whether or not to show the intro animation.
+IntroText = <string> - Text to show in the intro animation.
+IntroIcon = <string> - URL to the image you want to use in the intro animation.
+Icon = <string> - URL to the image you want displayed on the window.
+CloseCallback = <function> - Function to execute when the window is closed.
+]]
+
+
+local Tab = Window:MakeTab({
+	Name = "Main",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+
+Tab:AddToggle({
+	Name = "Auto Punch (Must be close to Punching Bag)",
+	Default = false,
+	Callback = function(Value)
+		  getgenv(). Punch = Value
+		
+		while getgenv(). Punch do
+		local TweenService = game:GetService("TweenService")
+
+local Tw = TweenService:Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(1, Enum.EasingStyle.Linear, Enum.EasingDirection.Out,0,false,0), 
+
+{CFrame = CFrame.new(-922.1748657226562, 11.20862102508545, -781.515869140625)}):Play()
+		game:GetService("ReplicatedStorage").Events.boxing:FireServer(game:GetService("Players").LocalPlayer)
+		wait(0.001)
+		end
+    	end    
+})
+
+
+Tab:AddToggle({
+	Name = "Auto Bench Press",
+	Default = false,
+	Callback = function(Value)
+		  getgenv(). Bench = Value
+		
+		while getgenv(). Bench do
+		game:GetService("ReplicatedStorage").Events.Gym:FireServer("supin",game:GetService("Players").LocalPlayer)
+		wait(0.01)
+		end
+    	end    
+})
+
+
+Tab:AddToggle({
+	Name = "Auto Pull Up",
+	Default = false,
+	Callback = function(Value)
+		  getgenv(). Pull = Value
+		
+		while getgenv(). Pull do
+		game:GetService("ReplicatedStorage").Events.Gym:FireServer("bar",game:GetService("Players").LocalPlayer)
+		wait (0.01)
+		end
+    	end    
+})
+
+
+Tab:AddToggle({
+	Name = "Auto Push Up",
+	Default = false,
+	Callback = function(Value)
+		  getgenv(). Train = Value
+		
+		while getgenv(). Train do
+		game:GetService("ReplicatedStorage").Events.PushUpActive:FireServer(game:GetService("Players").LocalPlayer)
+		wait(0.2)
+		end
+    	end    
+})
+
+
+Tab:AddToggle({
+	Name = "Auto Sit Up",
+	Default = false,
+	Callback = function(Value)
+		  getgenv(). Dura = Value
+		
+		while getgenv(). Dura do
+		game:GetService("ReplicatedStorage").Events.SitUpsActive:FireServer(game:GetService("Players").LocalPlayer)
+		wait(0.2)
+		end
+    	end    
+})
+
+
+Tab:AddToggle({
+	Name = "Auto Squat",
+	Default = false,
+	Callback = function(Value)
+		  getgenv(). Stam = Value
+		
+		while getgenv(). Stam do
+		game:GetService("ReplicatedStorage").Events.SquatActive:FireServer(game:GetService("Players").LocalPlayer)
+		wait(0.2)
+		end
+    	end    
+})
+
+
+local Tab = Window:MakeTab({
+	Name = "Other",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+
+Tab:AddButton({
+	Name = "Gym",
+	Callback = function()
+      	  local TweenService = game:GetService("TweenService")
+
+local Tw = TweenService:Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(1, Enum.EasingStyle.Linear, Enum.EasingDirection.Out,0,false,0), 
+
+{CFrame = CFrame.new(-923.246337890625, 9.057621955871582, -690.1509399414062)}):Play()
+  	end    
+})
+
+
+Tab:AddButton({
+	Name = "Equipment Shop",
+	Callback = function()
+      	  local TweenService = game:GetService("TweenService")
+
+local Tw = TweenService:Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(1, Enum.EasingStyle.Linear, Enum.EasingDirection.Out,0,false,0), 
+
+{CFrame = CFrame.new(-393.51483154296875, 9.355032920837402, -659.670166015625)}):Play()
+  	end    
+})
